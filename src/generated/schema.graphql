@@ -3,5 +3,22 @@
 
 
 type Query {
-  hello(name: String): String!
+  user(ID: String!): User!
+  users: [User!]!
+  version: String!
+}
+
+type User {
+  age: Int!
+  createdAt: String!
+  email: String!
+  ID: String!
+  name: String!
+  userType: UserType!
+}
+
+enum UserType {
+  ADMIN
+  GUEST
+  USER
 }
