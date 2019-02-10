@@ -1,17 +1,10 @@
-import { queryType, stringArg, makeSchema } from 'nexus'
-import { ApolloServer } from 'apollo-server'
+import * as types from './types'
 
-const Query = queryType({
-  definition(t) {
-    t.string('hello', {
-      args: { name: stringArg({ nullable: true }) },
-      resolve: (parent, { name }) => `Hello ${name || 'World'}!`,
-    })
-  },
-})
+import { ApolloServer } from 'apollo-server'
+import { makeSchema } from 'nexus'
 
 const schema = makeSchema({
-  types: [Query],
+  types,
   outputs: {
     schema: __dirname + '/generated/schema.graphql',
     typegen: __dirname + '/generated/typings.ts',
