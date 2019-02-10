@@ -1,0 +1,25 @@
+{
+  "name": "nexus_example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "ts-node-dev --no-notify --transpileOnly --respawn ./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.32"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.0",
+    "graphql": "^14.1.1",
+    "graphql-yoga": "^1.17.4",
+    "nexus": "^0.9.9",
+    "typescript": "^3.3.3"
+  }
+}
