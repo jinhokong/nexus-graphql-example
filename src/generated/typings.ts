@@ -11,6 +11,12 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  createUserInput: { // input type
+    age?: number | null; // Int
+    email: string; // String!
+    name: string; // String!
+    userType: NexusGenEnums['UserType']; // UserType!
+  }
 }
 
 export interface NexusGenEnums {
@@ -18,9 +24,10 @@ export interface NexusGenEnums {
 }
 
 export interface NexusGenRootTypes {
+  Mutation: {};
   Query: {};
   User: { // root type
-    age: number; // Int!
+    age?: number | null; // Int
     createdAt: string; // String!
     email: string; // String!
     ID: string; // String!
@@ -35,17 +42,21 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  createUserInput: NexusGenInputs['createUserInput'];
   UserType: NexusGenEnums['UserType'];
 }
 
 export interface NexusGenFieldTypes {
+  Mutation: { // field return type
+    createUser: NexusGenRootTypes['User']; // User!
+  }
   Query: { // field return type
     user: NexusGenRootTypes['User']; // User!
     users: NexusGenRootTypes['User'][]; // [User!]!
     version: string; // String!
   }
   User: { // field return type
-    age: number; // Int!
+    age: number | null; // Int
     createdAt: string; // String!
     email: string; // String!
     ID: string; // String!
@@ -55,6 +66,11 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenArgTypes {
+  Mutation: {
+    createUser: { // args
+      input: NexusGenInputs['createUserInput']; // createUserInput!
+    }
+  }
   Query: {
     user: { // args
       ID: string; // String!
@@ -67,9 +83,9 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Query" | "User";
+export type NexusGenObjectNames = "Mutation" | "Query" | "User";
 
-export type NexusGenInputNames = never;
+export type NexusGenInputNames = "createUserInput";
 
 export type NexusGenEnumNames = "UserType";
 
