@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/uuid": "^3.4.4",
     "ts-node": "^8.0.2",
     "tsconfig-paths": "^3.8.0"
   },
@@ -21,6 +22,7 @@
     "apollo-server": "^2.4.0",
     "graphql": "^14.1.1",
     "nexus": "^0.9.9",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.3",
+    "uuid": "^3.3.2"
   }
 }
