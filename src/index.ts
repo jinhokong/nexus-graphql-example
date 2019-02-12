@@ -3,9 +3,6 @@ import * as types from "types";
 import { ApolloServer } from "apollo-server";
 import { makeSchema } from "nexus";
 
-console.log("1");
-
-
 const schema = makeSchema({
   types,
   outputs: {
